@@ -1,5 +1,31 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h1 style="text-align: center;">please enter otp</h1>
+    {% load static %}
+    <form action="{% url 'validate' %}" method="POST">
+        {% csrf_token %}
+        <table align="center" border="0" style="margin-top: 50px;margin-bottom: 50px;">
+            <tr>
+                <th colspan="2" style="text-align:center;">Enter the otp</th>
+            </tr>
+            <tr>
+                <th>Contact:<input type="number" style="width: 100;float: right;" required name="t1"></th>
+
+            </tr>
+            <tr>
+                <th>OTP:<input type="number" style="width: 100;float: right;"required name="t2"></th>
+            </tr>
+            <tr>
+                <th colspan="2" style="text-align: center;"><button type="submit" class="btn btn-success">submit</button></th>
+            </tr>
+        </table>
+    </form>
+    {% if message %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align: center;">
+        <strong>Warning!.....</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endif %}
 {% endblock%}

@@ -8,5 +8,10 @@ urlpatterns=[
     path('user_registration/',views.registration,name='user_registration'),
     #otp uls
     path('user_otp/',views.userOTP,name="user-otp"),
+    #conformation
+    path("validate_otp/",views.validate_otp,name="validate"),
+    path("conformation/",views.conformation,name="conformation"),
+    #login
+    path('login/',views.login,name="login"),
     
 ]

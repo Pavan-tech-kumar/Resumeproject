@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from process.models import *
 from process.utils import sendTextMessage
 import random
-class RegistartionForm(forms.ModelForm):
+class RegistrationForm(forms.ModelForm):
     password=forms.CharField(widget=forms.PasswordInput)
 
     def clean_otp(self):

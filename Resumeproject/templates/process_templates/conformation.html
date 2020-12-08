@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% load static %}
+    <table align="center" border="0">
+        <tr><th>
+        {% for x in messages %}
+            <h1 style="text-align: center;">{{ x }}</h1>
+        {% endfor %}</th></tr>
+
+        <tr>
+            <th style="text-align: center;"><a href="{% url 'login' %}">Login from here</a></th>
+        </tr>
+{% endblock %}
