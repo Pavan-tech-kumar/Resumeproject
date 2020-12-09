@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% load static %}
+    {% if request.session.contact %}
+        {{ request.session.name }}
+    {% else %}
+    <div style="text-align: center;">
+        <h1>Please Do Login First</h1>
+        <h4>Without Login You Cannot Access The Page</h4>
+    </div>
+    {% endif %}
+{% endblock %}

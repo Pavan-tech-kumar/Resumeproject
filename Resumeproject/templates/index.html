@@ -24,7 +24,7 @@
     <title>Resume Management System</title>
   </head>
   <body>
-    <table align="center" border="2" width="1000">
+    <table align="center" border="0" width="1000">
       <tr>
         <th style="text-align: center;background-color:black;"><img src="{% static 'images/cv.png' %}" width="100" height="100"></th>
         <th style="padding: 10px; text-align: center;font-size: 40px; background-color: aqua;">Resume Management System</th>
@@ -57,14 +57,14 @@
                     Profile <span class="sr-only">(current)</span></a>
                   </a>
                   <div class="dropdown-menu menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">View Profile</a>
+                    <a class="dropdown-item" href="{% url 'view_profile' %}">View Profile</a>
                     <a class="dropdown-item" href="#">Update Profile</a>
                     <a class="dropdown-item" href="#">Delete Profile</a>
                   </div>
               </div>
               <div class="menu">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="{% url 'log_out' %}">Logout</a>
               </li>
               </div>
               <div class="menu">

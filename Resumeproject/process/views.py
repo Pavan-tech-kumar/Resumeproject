@@ -3,6 +3,7 @@ from process.models import *
 from process.forms import RegistrationForm
 from process.models import RegistrationModel
 from django.contrib.messages import success
+from django.contrib import sessions
 
 # Create your views here.
 def showIndex(request):
@@ -10,7 +11,7 @@ def showIndex(request):
 
 def registration(request):
     print("========1==========")
-    rf=RegistartionForm(request.POST)
+    rf=RegistrationForm(request.POST)
     if request.method == "POST":
         print("=======3======")
         if rf.is_valid():
@@ -49,3 +50,26 @@ def conformation(request):
 
 def login(request):
     return render(request,'process_templates/login.html')
+
+def login_check(request):
+    try:
+        result=RegistrationModel.objects.get(email=request.POST.get("u1"),password=request.POST.get("u2"))
+        if result.status == "pending":
+            return render(request,"process_templates/login.html",{"error":"Sorry Your account is not verified"})
+        if result.status == "closed":
+            return render(request,"process_templates/login.html",{"error":"Your Account is closed"})
+        request.session["contact"]=result.contact
+        request.session["name"]=result.name
+        return redirect("view_profile")
+    except RegistrationModel.DoesNotExist:
+        return render(request,"process_templates/login.html",{"error":"Invalid Details"})
+
+
+def view_profile(request):
+    return render(request,"process_templates/view_profile.html")
+
+
+def log_out(request):
+    del request.session["contact"]
+    del request.session["name"]
+    return redirect('main_page')

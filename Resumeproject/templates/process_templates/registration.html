@@ -15,6 +15,10 @@
         </tr>
     </table>
 -->
+{% if request.session.contact %}
+    <h1>You Are Already a Member</h1>
+{% else %}
+
     <form action="{% url 'registration' %}" method="POST">
         {% csrf_token %}
         <table align="center" border="0">
@@ -46,4 +50,5 @@
             <tr><th colspan="2"><button type="submit" class="btn btn-success">Save</button></th></tr>
         </table>
     </form>
+{% endif %}
 {% endblock %}
