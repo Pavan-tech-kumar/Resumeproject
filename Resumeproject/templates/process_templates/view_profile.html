@@ -3,7 +3,7 @@
 {% block content %}
     {% load static %}
     {% if request.session.contact %}
-        {{ request.session.name }}
+        <h3 style="text-align: center;">{{ request.session.name }}</h3>
     {% else %}
     <div style="text-align: center;">
         <h1>Please Do Login First</h1>

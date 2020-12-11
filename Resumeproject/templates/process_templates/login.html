@@ -1,41 +1,36 @@
 {% extends 'index.html' %}
 
+
 {% block content %}
     {% load static %}
+    
     {% if request.session.contact %}
         <h1>You have Already Logged in</h1>
     {% else %}
-        <style>
-            #l1{
-                text-align: center;
-                padding: 10px;
-                color:blue;
-                font-family: 'Times New Roman', Times, serif;
-                font-size: 20px;
-            }
-            table{
-                background-color: blueviolet;
-            }
-        </style>
+             
         <form action="{% url 'login_check' %}" method="POST">
             {% csrf_token %}
-            <table align="center" border="0" style="margin-top: 20px;">
+            <table align="center" border="0" style="margin-top: 50px;">
                 <tr>
-                    <th colspan="2" id="l1">Login page</th>
+                    <th colspan="2" style="text-align: center; color: brown; font-size: 25px; font-family: 'Times New Roman', Times, serif;">Login page</th>
                 </tr>
                 <tr>
                     <th style="padding: 10px;">
-                        <input type="email" placeholder="Email" required name="u1"> 
+                        
+                        <input type="email"  style="margin-top: 20px;" placeholder="Email" required name="u1"> 
                     </th>
                 </tr>
                 <tr><th style="padding: 10px;">
+                    
                     <input type="password" placeholder="Password" required name="u2">
                 </th></tr>
                 <tr>
-                    <th colspan="2" style="text-align: center;padding: 10px;"><button type="submit" class="btn btn-primary">Log in</button></th>
+                    <th colspan="2" style="text-align: center;padding: 10px;"><button type="submit" class="btn btn-primary" style="margin-bottom: 80px;">Log in</button></th>
                 </tr>
             </table>
+            
         </form>
+    
         {% if error %}
         <div class="alert alert-warning" role="alert" style="text-align: center; color: red;">
             {{ error }}

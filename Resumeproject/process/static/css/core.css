@@ -1,0 +1,22 @@
+.Loginpage{
+    text-align: center;
+    height: 200px;
+    padding: 50px;
+    margin-bottom: 150px;
+}
+.emailbox{
+    padding: 10px;
+
+}
+.passbox{
+    padding: 15px;
+    
+}
+.l1{
+    color: brown;
+        
+    font-family: 'Times New Roman', Times, serif;
+}
+.btn{
+    margin-top: 15px;
+}
